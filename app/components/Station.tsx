@@ -13,7 +13,7 @@ const Station: React.FC<{ station: StationType }> = ({ station }) => {
             <h4 className=" bg-red-600 rounded-sm text-center py-1 w-fit px-2 mb-28">{`${
               stop.name
             } ${index + 1}`}</h4>
-            <div className=" flex items-end space-x-16">
+            <div className=" flex items-end space-x-10 pl-4">
               <div
                 className=""
                 style={{
