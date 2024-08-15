@@ -52,7 +52,7 @@ const Station: React.FC<{ station: StationType }> = ({ station }) => {
             </div>
             <div
               className={`${
-                stop.train ? "bg-red-600" : "bg-white"
+                stop.train ? "bg-[#e84646]" : "bg-white"
               } text-black text-sm py-1`}
             >
               <p className="text-center">{stop.speed}</p>

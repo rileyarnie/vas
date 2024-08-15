@@ -5,6 +5,7 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import logo from "/public/assets/logo.png";
 import MenuIcon from "/public/assets/icons/bars-solid.svg";
 import Avatar from "/public/assets/useravatar.png";
+import Chevron from "/public/assets/icons/angle-up-solid.svg";
 import Bell from "/public/assets/icons/bell-solid.svg";
 
 const hours = new Date().getHours();
@@ -15,9 +16,15 @@ const Navbar: React.FC<{
 }> = ({ setOpen, open }) => {
   const [greeting, setGreeting] = useState("");
   const [notificationOpen, setNotificationOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleNotification = () => {
+    setMenuOpen(false);
     setNotificationOpen(!notificationOpen);
+  };
+  const handleMenu = () => {
+    setNotificationOpen(false);
+    setMenuOpen(!menuOpen);
   };
 
   useEffect(() => {
@@ -75,14 +82,50 @@ const Navbar: React.FC<{
             <p className="p-2 text-sm text-center">View all Notifications</p>
           </div>
         </div>
-        <p className=" text-sm">{`${greeting} Jeremy`}</p>
-        <Image
-          className=" object-contain h-8 w-8"
-          src={Avatar}
-          height={120}
-          width={120}
-          alt="avatar"
-        />
+        <div
+          className=" hover:bg-gray-300 cursor-pointer flex items-center space-x-3 p-2 "
+          onClick={handleMenu}
+        >
+          <p className=" text-sm max-md:hidden">{`${greeting} Jeremy`}</p>
+          <Image
+            className=" object-contain h-8 w-8"
+            src={Avatar}
+            height={120}
+            width={120}
+            alt="avatar"
+          />
+          <Image
+            className={`object-contain h-4 w-4 ${
+              menuOpen ? "transform rotate-0" : "transform rotate-180"
+            } ease-in-out duration-150`}
+            src={Chevron}
+            height={50}
+            width={50}
+            alt="avatar"
+          />
+          <div
+            className={`flex flex-col mt-4 p-1 rounded-sm space-y-4 w-[13rem] ${
+              menuOpen
+                ? "bg-white  top-full absolute right-[2rem] ease-in-out duration-200"
+                : " hidden ease-in-out duration-200"
+            }"`}
+          >
+            <div className="flex px-2 justify-start align-middle items-center space-x-4">
+              <Image
+                className=" object-contain h-12 w-12"
+                src={Avatar}
+                height={120}
+                width={120}
+                alt="avatar"
+              />
+              <div className="">
+                <p className="text-sm">Jeremy Alex</p>
+                <p className="text-sm text-gray-400">User</p>
+              </div>
+            </div>
+            <p className="border-t pt-2">Logout</p>
+          </div>
+        </div>
       </div>
     </nav>
   );

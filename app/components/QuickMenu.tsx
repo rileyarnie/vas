@@ -46,7 +46,7 @@ const QuickMenu = () => {
         <Button text="Delete Request" />
         <Button text="Scroll to" />
       </div>
-      <div className="text-black grid grid-cols-2 gap-1 px-[2px]">
+      <div className="text-black grid grid-cols-2 max-md:grid-cols-1 gap-1 px-[2px]">
         {items.map((item) => (
           <div
             key={item.id}

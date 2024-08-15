@@ -6,7 +6,7 @@ import BottomMenu from "./components/BottomMenu";
 
 export default function Home() {
   return (
-    <div className="bg-black grid grid-cols-4">
+    <div className="bg-black grid grid-cols-4 max-md:grid-cols-1">
       {/* <div className="bg-blue-400"></div> */}
       <div className="bg-black col-span-1 border-r ">
         <div className="h-[60vh] ">

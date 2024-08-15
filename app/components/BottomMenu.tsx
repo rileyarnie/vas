@@ -13,7 +13,7 @@ const bottomMenuItems = [
 
 const BottomMenu = () => {
   return (
-    <div className="grid grid-cols-4 text-white ">
+    <div className="grid grid-cols-4 max-md:grid-cols-1 text-white ">
       {bottomMenuItems.map((menuItem) => (
         <div
           className="py-4 divide-solid divide-x-2 divide-red-600 border border-red-600"
